@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Головна сторінка 2.0 | Nova Post</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <section class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-content-right fade-up">
+                <div class="badge">Product Council | 21.05.2026</div>
+                <h1>Головна сторінка: <br><span class="highlight">Панель керування вашою логістикою</span></h1>
+                <div class="cta-wrapper">
+                    <button class="btn-primary pulse" onclick="document.getElementById('problem-statement').scrollIntoView({behavior: 'smooth'})">Далі</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="problem-statement" class="section">
+        <div class="container">
+            <h2 class="section-title">Problem Statement</h2>
+            
+            <div class="journey-container-vertical">
+                <div class="journey-box-vertical current-vertical">
+                    <h3>❌ Виявлені проблеми (As Is)</h3>
+                    <ul class="flow-list">
+                        <li>
+                            <strong>Високий рівень вкладеності основного функціоналу</strong>
+                            <span>Зайві кліки та час на дію.</span>
+                        </li>
+                        <li>
+                            <strong>Інформація про кур'єра не на виду</strong>
+                        </li>
+                        <li>
+                            <strong>Важливі відправлення не на виду</strong>
+                            <span>Немає окремого фокусу на посилках, які потребують негайної реакції.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="journey-box-vertical future-vertical">
+                    <h3>✅ Цільове рішення (To Be)</h3>
+                    <ul class="flow-list check-list">
+                        <li>
+                            <strong>Усі ключові дії — на одному екрані</strong>
+                            <span>Миттєвий доступ до найважливіших інструментів без додаткових переходів.</span>
+                        </li>
+                        <li>
+                            <strong>Прозорість процесу виклику кур'єра</strong>
+                            <span>Можливість зрозуміти статус кур'єра самостійно, без потреби звертатись до співробітників компанії.</span>
+                        </li>
+                        <li>
+                            <strong>Прозорі статуси відправлень</strong>
+                            <span>Чіткий фокус на посилках, які потребують уваги, для проактивного вирішення проблем.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title white-text">Метрики, що вимірюватимуть вплив ефективності допрацювання</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-emoji">🎯</div>
+                    <div class="stat-value">+0.2 п.п.</div>
+                    <div class="stat-title">Очікуване зростання CSAT / NPS сервісу</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-emoji">📉</div>
+                    <div class="stat-value">-42 тис.</div>
+                    <div class="stat-title">Зменшення кількості зайвих кліків</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-emoji">☎️</div>
+                    <div class="stat-value">-15%</div>
+                    <div class="stat-title">Зниження навантаження на лінію підтримки за тематикою БК</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section gray-bg">
+        <div class="container">
+            <h2 class="section-title">Конкурентний аналіз</h2>
+            <div class="competitor-groups">
+                <div class="comp-group-card">
+                    <div class="group-header">
+                        <div class="group-badge">Група 1: Інформаційні дошки оголошень</div>
+                        <div class="group-logos">
+                            <img class="company-logo-img" src="https://logo.clearbit.com/gls-group.eu" alt="GLS" onerror="this.style.display='none'">
+                            <img class="company-logo-img" src="https://logo.clearbit.com/novaposhtaglobal.ua" alt="Nova Post Global" onerror="this.style.display='none'">
+                        </div>
+                    </div>
+                    <div class="group-screens-grid">
+                        <div class="screen-item">
+                            <div class="img-wrapper" onclick="openLightbox(this)">
+                                <img src="competitor_gls.png" alt="GLS" onerror="this.src='https://via.placeholder.com/400x250?text=GLS+Dashboard'">
+                            </div>
+                        </div>
+                        <div class="screen-item">
+                            <div class="img-wrapper" onclick="openLightbox(this)">
+                                <img src="competitor_novaglobal.png" alt="Nova Post Global" onerror="this.src='https://via.placeholder.com/400x250?text=Nova+Post+Global'">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comp-group-card">
+                    <div class="group-header">
+                        <div class="group-badge">Група 2: Сухі аналітичні звіти та дашборди</div>
+                        <div class="group-logos">
+                            <img class="company-logo-img" src="https://logo.clearbit.com/shippypro.com" alt="ShippyPro" onerror="this.style.display='none'">
+                            <img class="company-logo-img" src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" onerror="this.style.display='none'">
+                        </div>
+                    </div>
+                    <div class="group-screens-grid">
+                        <div class="screen-item">
+                            <div class="img-wrapper" onclick="openLightbox(this)">
+                                <img src="competitor_shippypro.png" alt="ShippyPro" onerror="this.src='https://via.placeholder.com/400x250?text=ShippyPro'">
+                            </div>
+                        </div>
+                        <div class="screen-item">
+                            <div class="img-wrapper" onclick="openLightbox(this)">
+                                <img src="competitor_salesforce.png" alt="Salesforce" onerror="this.src='https://via.placeholder.com/400x250?text=Salesforce'">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comp-group-card">
+                    <div class="group-header">
+                        <div class="group-badge">Група 3: Гібридні операційні панелі задач</div>
+                        <div class="group-logos">
+                            <img class="company-logo-img" src="https://logo.clearbit.com/dpd.com" alt="DPD" onerror="this.style.display='none'">
+                            <img class="company-logo-img" src="https://logo.clearbit.com/shopify.com" alt="Shopify" onerror="this.style.display='none'">
+                        </div>
+                    </div>
+                    <div class="group-screens-grid">
+                        <div class="screen-item">
+                            <div class="img-wrapper" onclick="openLightbox(this)">
+                                <img src="competitor_dpd.png" alt="DPD" onerror="this.src='https://via.placeholder.com/400x250?text=DPD+Portal'">
+                            </div>
+                        </div>
+                        <div class="screen-item">
+                            <div class="img-wrapper" onclick="openLightbox(this)">
+                                <img src="competitor_shopify.png" alt="Shopify" onerror="this.src='https://via.placeholder.com/400x250?text=Shopify+Admin'">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="testimonials-section section gray-bg">
+        <div class="container">
+            <h2 class="section-title">Результати досліджень та фідбек</h2>
+            
+            <div class="research-insights">
+		    <div class="insight-card">
+                    <div class="insight-number">100%</div>
+                    <h4>Зрозумілість організації компонентів</h4>
+                    <p>Усі 6 респондентів позитивно відгукнулись про вигляд та організацію блоків на екрані.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-number">83%</div>
+                    <h4>Покращення прозорості доставки</h4>
+                    <p>Респондентів зазначили, що блок «Потребують уваги» є найважливішим оновленням, оскільки він напряму захищає репутацію їхнього бізнесу перед покупцями.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-number">83%</div>
+                    <h4>Критичність функціоналу роботи з викликом кур'єра</h4>
+                    <p>Користувачів висловились про критичність знаходження даних про кур'єра на головному екрані як критичному елементі роботи з відправленнями.</p>
+                </div>
+            </div>
+
+            <h3 class="section-subtitle centered-text" style="margin: 60px 0 30px; font-weight: 700; font-size: 1.5rem; text-transform: uppercase;">Пряма мова респондентів (UX-тести)</h3>
+
+            <div class="quotes-grid">
+                <div class="quote-card">
+                    <p class="quote-text">"Зібрати всю інформацію замість того, щоб заходити в кожну [сторінку] окремо. Зробити це простіше для мене, більш практично мати все [на одному екрані], як ви бачите: поточний платіж, баланс, орієнтовний час та дату доставки""</p>
+                    <div class="user-profile">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Єлизавета" class="user-avatar">
+                        <div class="user-info">
+                            <h5>Antonella</h5>
+                            <span>🇫🇷 Франція | ~200 відпр./тиджень</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <p class="quote-text">"Ну, я думаю, що порівняно з актуальним варіантом, який я зараз використовую, цей виглядає простішим і кращим, легшим у використанні... Я дуже ціную дизайн. Тут багато інформації, і я вважаю, що він дуже простий і зручний"</p>
+                    <div class="user-profile">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Максим" class="user-avatar">
+                        <div class="user-info">
+                            <h5>David</h5>
+                            <span>🇪🇸 Іспанія | ~80 відпр./тиждень</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <p class="quote-text">"Отже, тут я бачу огляд моєї компанії, моїх замовлень за останні сім днів... Я вважаю, що все виглядає зрозуміло... Це основні речі, які я хочу бачити на головному екрані, коли б я сюди не зайшов"</p>
+                    <div class="user-profile">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Анатолій" class="user-avatar">
+                        <div class="user-info">
+                            <h5>Paúl</h5>
+                            <span>🇪🇸 Іспанія | ~100 відпр./тиждень</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <p class="quote-text">"Вона по візуалу краща, більш сучасна. В принципі, мені більше подобається... ця сторінка доволі класна, вона не перенасичена кольорами, білий фон, це завжди прикольно. Я за мінімалізм"</p>
+                    <div class="user-profile">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Дарина" class="user-avatar">
+                        <div class="user-info">
+                            <h5>Олександра</h5>
+                            <span>🇺🇦 Україна | ~70 відпр./тиждень</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <p class="quote-text">"Статистика – круто, те, про що я казав. Виклик кур'єра – круто, важлива функція... Круто, що ті посилки, які залежались, підтянуті і виділені червоним. Це прям дуже круто"</p>
+                    <div class="user-profile">
+                        <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Марк" class="user-avatar">
+                        <div class="user-info">
+                            <h5>Костянтин</h5>
+                            <span>🇺🇦 Україна | ~40 відпр./тиждень</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <p class="quote-text">"Те, що завершився термін зберігання, ось ці функції теж, в принципі, дуже корисно. На сьогоднішній день я це в принципі, намагаюсь моніторити власноруч, скажімо... Так було б зручніше, мабуть"</p>
+                    <div class="user-profile">
+                        <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Олена" class="user-avatar">
+                        <div class="user-info">
+                            <h5>Михайло</h5>
+                            <span>🇺🇦 Україна | ~15 відпр./тиждень</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section gray-bg">
+        <div class="container">
+            <h2 class="section-title">Демо-презентація</h2>
+            <div class="demo-showcase">
+                <div class="demo-item">
+                    <img src="image_89b7b0.png" alt="Головна сторінка Бізнес-кабінету" onerror="this.src='https://via.placeholder.com/1200x700?text=Головна+Сторінка+Макет'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section section gray-bg">
+        <div class="container">
+            <h2 class="section-title">FAQ для Клієнтів</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>1. Чому я більше не бачу список накладних одразу при вході?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Ми винесли повний список накладних у окремий розділ "Shipments" (Відправлення), щоб звільнити місце на Головній для стратегічних задач: проактивного вирішення проблем, аналітики грошей та швидкого доступу до калькулятора й кур'єрів.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>2. Як працює блок "Відправлення, що потребують уваги"?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>У цей блок автоматично підтягуються посилки, з якими виникли проблеми: закінчується термін безкоштовного зберігання, статус змінився на "відмова" тощо. Ви можете прямо звідси натиснути "Продовжити зберігання" або "Переадресація", рятуючи замовлення.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>3. Як мені швидко отримати банківські реквізити та умови оплати?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>На бічній панелі у віджеті "Balance" ви завжди бачите актуальний стан рахунків, суму заборгованості та поточні виплати. Усі деталізовані умови контрактів та призначення платежів доступні у один клік без переходів у фінансові підменю.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>4. Чи можна налаштувати головну під свої потреби?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Наразі сторінка є типовою для усіх користувачів сервісу.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section section internal-faq">
+        <div class="container">
+             <h2 class="section-title">Internal FAQ</h2>
+            <div class="accordion accordion-dark">
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>[+] Чому це допрацювання стратегічно важливе?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Це фундаментальний етап розбудови бізнес-кабінету як <strong>end-to-end self-service рішення</strong>. Замість пасивного перегляду таблиць, клієнт отримує пульт управління бізнесом, що проактивно знижує дебіторську заборгованість та відтік користувачів.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>[+] Які саме бізнес-метрики ми змінюємо?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Ми впливаємо на кількість кількість кліків на шляху до здійснення ключових дій клієнта, знижуємо кількість запитів до Центру турботи, та підвищуємо загальний рівень задоволеності сервісом (CSAT на +0.2 п.п.).</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>[+] Що буде, якщо нічого не робити (Cost of Delay)?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Рівень задоволеності користувачів залишатиметься нижчим з огляду на вищий рівень складності базових дій, а кількість звернень про допомогу зростатиме пропорційно росту охоплення сервісу.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>[+] Чому саме зараз?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Після переключення Молдови кількість активних користувачів подвоїлась, а кількість бізнес-клієнтів зросла у 2,5 рази, що провокує підвищене навантаження на служби підтримки, а також збільшує обсяг зайвих дій для ключових заадч клієнта при активному масштабуванні сервісу.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoomed view">
+    </div>
+
+    <script>
+        function toggleAccordion(element) {
+            const item = element.parentElement;
+            item.classList.toggle('active');
+            const icon = element.querySelector('.icon');
+            icon.textContent = item.classList.contains('active') ? '−' : '+';
+        }
+
+        function openLightbox(element) {
+            const imgSrc = element.querySelector('img').src;
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>
