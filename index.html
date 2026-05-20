@@ -8,11 +8,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
     <section class="hero-section">
-        <div class="container hero-container">
+        <div class="logistics-anim icon-truck"><svg viewBox="0 0 24 24" width="100" height="100" fill="var(--np-red)"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div>
+        <div class="logistics-anim icon-box"><svg viewBox="0 0 24 24" width="80" height="80" fill="var(--np-red)"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9zM12 4.15L6.04 7.5 12 10.85l5.96-3.35L12 4.15zM5 15.91l6 3.38v-6.71L5 9.21v6.7zM19 15.91v-6.7l-6 3.37v6.71l6-3.38z"/></svg></div>
+        <div class="logistics-anim icon-plane"><svg viewBox="0 0 24 24" width="120" height="120" fill="var(--np-red)"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg></div>
+        
+        <div class="container hero-content">
             <div class="hero-content-right fade-up">
                 <div class="badge">Product Council | 21.05.2026</div>
                 <h1>Головна сторінка: <br><span class="highlight">Панель керування вашою логістикою</span></h1>
@@ -44,68 +45,102 @@
         </div>
     </section>
 
-    <section id="problem-statement" class="section">
+    <section class="customer-pains-section" style="padding-top: 80px;">
         <div class="container">
-            <h2 class="section-title">Problem Statement</h2>
+            <div class="reviews-header text-center" style="margin-bottom: 40px; text-align: center;">
+                <h2 class="section-title text-dark">Актуальні болі клієнтів</h2>
+                <p style="font-size: 1.2rem; color: #666;">Реальні проблеми B2B-користувачів при роботі зі старою Головною сторінкою:</p>
+            </div>
             
-            <div class="journey-container-vertical">
-                <div class="journey-box-vertical current-vertical">
-                    <h3>❌ Виявлені проблеми (As Is)</h3>
-                    <ul class="flow-list">
-                        <li>
-                            <strong>Високий рівень вкладеності основного функціоналу</strong>
-                            <span>Зайві кліки та час на дію.</span>
-                        </li>
-                        <li>
-                            <strong>Інформація про кур'єра не в швидкому доступі</strong>
-                            <span>Для перевірки статусу або деталей виклику доводиться здійснювати додаткові переходи чи дзвонити на гарячу лінію.</span>
-                        </li>
-                        <li>
-                            <strong>Важливі відправлення не на виду</strong>
-                            <span>Немає окремого фокусу на посилках, які потребують негайної реакції.</span>
-                        </li>
+            <div class="reviews-grid pain-grid">
+                <!-- Карточка 1 -->
+                <div class="review-card pain-card">
+                    <div class="stars crosses">❌</div>
+                    <p class="review-text"><em>«Постійно пропускаю посилки, по яким закінчується безкоштовне зберігання, бо їх не видно одразу при вході. Доводиться шукати їх вручну серед сотень інших відправлень.»</em></p>
+                    <div class="author-info customer-info">
+                        <div class="avatar" style="background: transparent; color: var(--np-red); font-size: 1.8rem;">📍</div>
+                        <div class="info-text">
+                            <strong>Інсайти B2B-користувачів</strong>
+                            <span class="customer-volume" style="display: block; font-size: 0.95rem; font-weight: 500; color: var(--np-red); margin-top: 4px;">Сліпий пошук</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="review-card pain-card">
+                    <div class="stars crosses">❌</div>
+                    <p class="review-text"><em>«Щоб перевірити поточну заборгованість чи статус виклику кур'єра, треба робити багато переходів у різні меню. Ці критичні дані мають бути одразу перед очима.»</em></p>
+                    <div class="author-info customer-info">
+                        <div class="avatar" style="background: transparent; color: var(--np-red); font-size: 1.8rem;">📍</div>
+                        <div class="info-text">
+                            <strong>Інсайти операційних менеджерів</strong>
+                            <span class="customer-volume" style="display: block; font-size: 0.95rem; font-weight: 500; color: var(--np-red); margin-top: 4px;">Високий рівень вкладеності</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="problem-statement" class="comparison-section">
+        <div class="container">
+            <h2 class="section-title text-dark">Problem Statement</h2>
+            
+            <div class="comparison-grid">
+                <div class="card card-old">
+                    <h2 class="card-title">❌ ВИЯВЛЕНІ ПРОБЛЕМИ (AS IS)</h2>
+                    <ul class="feature-list">
+                        <li><strong>Високий рівень вкладеності основного функціоналу</strong> Зайві кліки та час на дію.</li>
+                        <li><strong>Інформація про кур'єра не в швидкому доступі</strong> Для перевірки статусу або деталей виклику доводиться здійснювати додаткові переходи чи дзвонити на гарячу лінію.</li>
+                        <li><strong>Важливі відправлення не на виду</strong> Немає окремого фокусу на посилках, які потребують негайної реакції.</li>
                     </ul>
                 </div>
 
-                <div class="journey-box-vertical future-vertical">
-                    <h3>✅ Цільове рішення (To Be)</h3>
-                    <ul class="flow-list check-list">
-                        <li>
-                            <strong>Усі ключові дії — на одному екрані</strong>
-                            <span>Миттєвий доступ до найважливіших інструментів без додаткових переходів.</span>
-                        </li>
-                        <li>
-                            <strong>Прозорість процесу виклику кур'єра</strong>
-                            <span>Можливість зрозуміти статус кур'єра самостійно, без потреби звертатись до співробітників компанії.</span>
-                        </li>
-                        <li>
-                            <strong>Прозорі статуси відправлень</strong>
-                            <span>Чіткий фокус на посилках, які потребують уваги, для проактивного вирішення проблем.</span>
-                        </li>
+                <div class="card card-new">
+                    <h2 class="card-title">✅ ЦІЛЬОВЕ РІШЕННЯ (TO BE)</h2>
+                    <ul class="feature-list check-list">
+                        <li><strong>Усі ключові дії — на одному екрані</strong> Миттєвий доступ до найважливіших інструментів без додаткових переходів.</li>
+                        <li><strong>Прозорість процесу виклику кур'єра</strong> Можливість зрозуміти статус кур'єра самостійно, без потреби звертатись до співробітників компанії.</li>
+                        <li><strong>Прозорі статуси відправлень</strong> Чіткий фокус на посилках, які потребують уваги, для проактивного вирішення проблем.</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="stats-section">
+    <section class="stats-section" style="padding: 80px 0; background: #fdfafa;">
         <div class="container">
-            <h2 class="section-title white-text">Метрики, що вимірюватимуть вплив ефективності допрацювання</h2>
-            <div class="stats-grid">
+            <div class="reviews-header text-center" style="margin-bottom: 50px;">
+                <h3 class="section-title text-dark">Метрики ефективності</h3>
+                <p style="font-size: 1.2rem; color: #666;">Очікуваний бізнес-результат від впровадження нової Головної сторінки:</p>
+            </div>
+            
+            <div class="stats-grid mb-60" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
                 <div class="stat-card">
-                    <div class="stat-emoji">🎯</div>
-                    <div class="stat-value">+0.2 п.п.</div>
-                    <div class="stat-title">Очікуване зростання CSI сервісу</div>
+                    <div style="color: var(--np-red); margin-bottom: 15px;">
+                        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"></path></svg>
+                    </div>
+                    <div class="stat-value">+0.2 <span>п.п.</span></div>
+                    <div class="stat-title">Зростання CSI сервісу</div>
+                    <div class="stat-desc">Завдяки усуненню "сліпих зон" та більш прозорому інформуванню про статус посилок і баланс.</div>
                 </div>
+                
                 <div class="stat-card">
-                    <div class="stat-emoji">📉</div>
-                    <div class="stat-value">-42 тис.</div>
-                    <div class="stat-title">Зменшення кількості зайвих кліків</div>
+                    <div style="color: var(--np-red); margin-bottom: 15px;">
+                        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>
+                    </div>
+                    <div class="stat-value">-42 <span>тис.</span></div>
+                    <div class="stat-title">Зайвих кліків щомісяця</div>
+                    <div class="stat-desc">Скорочення часу на пошук базової інформації (баланс, кур'єр, проблемні відправлення) для B2B-клієнтів.</div>
                 </div>
+                
                 <div class="stat-card">
-                    <div class="stat-emoji">☎️</div>
-                    <div class="stat-value">-15%</div>
-                    <div class="stat-title">Зниження навантаження на лінію підтримки за тематикою БК</div>
+                    <div style="color: var(--np-red); margin-bottom: 15px;">
+                        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    </div>
+                    <div class="stat-value">-15% <span></span></div>
+                    <div class="stat-title">Навантаження на підтримку</div>
+                    <div class="stat-desc">Зниження кількості звернень до контакт-центру з питаннями "Де мій кур'єр?" та "Чому посилка зупинена?".</div>
                 </div>
             </div>
         </div>

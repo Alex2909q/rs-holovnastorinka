@@ -301,6 +301,139 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; color: var(--dark); lin
 .btn-primary:hover { transform: scale(1.03); }
 .badge { border: 1px solid rgba(255,255,255,0.3); padding: 6px 16px; border-radius: 25px; margin-bottom: 20px; display: inline-block; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px; }
 
+/* --- Problem Statement (Comparison Grid) --- */
+.comparison-section {
+  background-color: #f4f5f7;
+  padding: 80px 0;
+  color: var(--dark);
+  position: relative;
+}
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+}
+.card {
+  background: #fff;
+  padding: 50px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.card-old { border-top: 6px solid #ff4d4f; }
+.card-new { border-top: 6px solid #52c41a; }
+.card-title { font-size: 1.6rem; margin-bottom: 30px; font-weight: 800; }
+.feature-list { list-style: none; padding: 0; }
+.feature-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+.feature-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--np-red);
+  font-size: 1.8rem;
+  line-height: 1;
+  top: -4px;
+}
+.check-list li::before { color: #52c41a; }
+.feature-list strong { display: block; margin-bottom: 4px; color: #111; font-weight: 700; }
+
+@media (max-width: 900px) {
+  .comparison-grid { grid-template-columns: 1fr; }
+}
+
+/* --- Customer Pains Section --- */
+.customer-pains-section {
+    padding-bottom: 60px;
+    background: #ffffff;
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.review-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s;
+}
+.review-card:hover { transform: translateY(-5px); }
+.pain-card {
+  background: #fdfafa;
+  border: 1px solid rgba(238, 29, 35, 0.1);
+}
+.stars.crosses { font-size: 1.5rem; letter-spacing: 0; color: var(--np-red); margin-bottom: 20px; }
+.review-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 25px; flex-grow: 1; color: var(--dark); }
+.customer-info { display: flex; align-items: center; gap: 16px; margin-top: auto; }
+.avatar { 
+    font-size: 2rem; 
+    background: #f0f0f0; 
+    width: 60px; 
+    height: 60px; 
+    min-width: 60px; 
+    flex-shrink: 0; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border-radius: 50%; 
+    overflow: hidden; 
+}
+.info-text strong { display: block; font-size: 1.05rem; }
+
+/* --- Stats Grid Section --- */
+.stat-card {
+  background: #ffffff;
+  border: 1px solid rgba(238, 29, 35, 0.1);
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+  transition: transform 0.3s;
+}
+.stat-card:hover { transform: translateY(-5px); }
+.stat-value {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--np-red);
+  margin-bottom: 10px;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 5px;
+}
+.stat-value span {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.stat-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 15px;
+}
+.stat-desc {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .reviews-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr !important; }
+}
+
+/* --- Interactive Demo Section --- */
 /* Vision Quote Section */
 .vision-quote-section {
     padding: 80px 0 40px;
