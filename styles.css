@@ -433,6 +433,47 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; color: var(--dark); lin
   .stats-grid { grid-template-columns: 1fr !important; }
 }
 
+/* --- Floating Logistics SVG Decor --- */
+.hero-section {
+  position: relative;
+  overflow: hidden; /* Contains the flying elements */
+}
+.logistics-anim {
+  position: absolute;
+  opacity: 0.35;
+  z-index: 1;
+  pointer-events: none;
+}
+.icon-truck {
+  bottom: 5%;
+  left: 0;
+  animation: drive-truck 18s linear infinite;
+}
+.icon-box {
+  top: 15%;
+  right: 10%;
+  animation: float-box 6s ease-in-out infinite;
+}
+.icon-plane {
+  top: 15%;
+  left: 0;
+  animation: fly-plane 16s linear infinite;
+}
+
+@keyframes drive-truck {
+  0% { transform: translateX(-200px); }
+  100% { transform: translateX(110vw); }
+}
+@keyframes fly-plane {
+  0% { transform: translate(-200px, 150px) rotate(10deg) scale(0.6); }
+  100% { transform: translate(110vw, -150px) rotate(10deg) scale(1.2); }
+}
+@keyframes float-box {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(15deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
 /* --- Interactive Demo Section --- */
 /* Vision Quote Section */
 .vision-quote-section {
