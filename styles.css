@@ -16,10 +16,10 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; color: var(--dark); lin
 .hero-section {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('hero-bg.jpg') center/cover;
-    display: flex; align-items: center; justify-content: flex-end; text-align: right; color: white;
+    display: flex; align-items: center; justify-content: flex-start; text-align: left; color: white;
 }
-.hero-content-right { max-width: 800px; }
-.hero-content-right h1 { font-size: 4rem; font-weight: 800; margin-bottom: 20px; line-height: 1.1; }
+.hero-content-left { max-width: 800px; }
+.hero-content-left h1 { font-size: 4rem; font-weight: 800; margin-bottom: 20px; line-height: 1.1; }
 .highlight { color: var(--np-red); }
 .subtitle { font-size: 1.3rem; opacity: 0.9; margin-bottom: 40px; }
 
