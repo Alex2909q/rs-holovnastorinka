@@ -246,9 +246,17 @@
         <div class="solution-lightbox-backdrop" onclick="closeSolutionLightbox()"></div>
         <div class="solution-lightbox-inner">
             <button class="slb-close" onclick="closeSolutionLightbox()" aria-label="Закрити">&times;</button>
+
+            <!-- Zoom controls -->
+            <div class="slb-zoom-controls">
+                <button class="slb-zoom-btn" onclick="slbZoom(0.25)" title="Збільшити">+</button>
+                <button class="slb-zoom-btn" onclick="slbZoom(-0.25)" title="Зменшити">&minus;</button>
+                <button class="slb-zoom-btn slb-zoom-reset" onclick="slbResetZoom()" title="Скинути масштаб">1:1</button>
+            </div>
+
             <button class="slb-nav slb-prev" onclick="changeSolutionImage(-1)" aria-label="Попередня">&#8249;</button>
-            <div class="slb-img-wrap">
-                <img id="solution-lightbox-img" src="" alt="Збільшене зображення">
+            <div class="slb-img-wrap" id="slb-img-wrap">
+                <img id="solution-lightbox-img" src="" alt="Збільшене зображення" draggable="false">
             </div>
             <button class="slb-nav slb-next" onclick="changeSolutionImage(1)" aria-label="Наступна">&#8250;</button>
             <div class="slb-counter"><span id="slb-current">1</span> / <span id="slb-total">5</span></div>
@@ -473,6 +481,66 @@
         ];
         let slbCurrent = 0;
 
+        // ── Zoom state ─────────────────────────────────────────────────────
+        let slbScale = 1;
+        let slbTransX = 0, slbTransY = 0;
+        let slbDragging = false;
+        let slbDragStart = { x: 0, y: 0 };
+        const MIN_SCALE = 1, MAX_SCALE = 5;
+
+        function slbApplyTransform() {
+            const img = document.getElementById('solution-lightbox-img');
+            img.style.transform = `translate(${slbTransX}px, ${slbTransY}px) scale(${slbScale})`;
+            img.style.cursor = slbScale > 1 ? 'grab' : 'zoom-in';
+            // show/hide zoom level
+            const pct = Math.round(slbScale * 100);
+            document.querySelector('.slb-zoom-reset').textContent = pct + '%';
+        }
+
+        function slbResetZoom() {
+            slbScale = 1; slbTransX = 0; slbTransY = 0;
+            slbApplyTransform();
+        }
+
+        function slbZoom(delta) {
+            slbScale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, slbScale + delta));
+            if (slbScale === 1) { slbTransX = 0; slbTransY = 0; }
+            slbApplyTransform();
+        }
+
+        // Mouse wheel zoom
+        document.getElementById('slb-img-wrap').addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const delta = e.deltaY < 0 ? 0.15 : -0.15;
+            slbZoom(delta);
+        }, { passive: false });
+
+        // Drag to pan
+        const slbWrap = document.getElementById('slb-img-wrap');
+        slbWrap.addEventListener('mousedown', (e) => {
+            if (slbScale <= 1) return;
+            slbDragging = true;
+            slbDragStart = { x: e.clientX - slbTransX, y: e.clientY - slbTransY };
+            document.getElementById('solution-lightbox-img').style.cursor = 'grabbing';
+            e.preventDefault();
+        });
+        document.addEventListener('mousemove', (e) => {
+            if (!slbDragging) return;
+            slbTransX = e.clientX - slbDragStart.x;
+            slbTransY = e.clientY - slbDragStart.y;
+            slbApplyTransform();
+        });
+        document.addEventListener('mouseup', () => {
+            if (!slbDragging) return;
+            slbDragging = false;
+            document.getElementById('solution-lightbox-img').style.cursor = slbScale > 1 ? 'grab' : 'zoom-in';
+        });
+
+        // Double-click to zoom in / reset
+        slbWrap.addEventListener('dblclick', (e) => {
+            if (slbScale > 1) { slbResetZoom(); } else { slbZoom(1); }
+        });
+
         function buildSlbDots() {
             const wrap = document.getElementById('slb-dots');
             wrap.innerHTML = '';
@@ -487,6 +555,7 @@
 
         function goToSlbImage(index) {
             slbCurrent = (index + solutionImages.length) % solutionImages.length;
+            slbResetZoom();
             const img = document.getElementById('solution-lightbox-img');
             img.style.opacity = '0';
             setTimeout(() => {
@@ -502,6 +571,7 @@
 
         function openSolutionLightbox(index) {
             slbCurrent = index;
+            slbResetZoom();
             document.getElementById('slb-total').textContent = solutionImages.length;
             buildSlbDots();
             const img = document.getElementById('solution-lightbox-img');
@@ -513,6 +583,7 @@
         }
 
         function closeSolutionLightbox() {
+            slbResetZoom();
             document.getElementById('solution-lightbox').classList.remove('active');
             document.body.style.overflow = 'auto';
         }
@@ -528,6 +599,9 @@
             if (e.key === 'ArrowRight') changeSolutionImage(1);
             if (e.key === 'ArrowLeft')  changeSolutionImage(-1);
             if (e.key === 'Escape')     closeSolutionLightbox();
+            if (e.key === '+' || e.key === '=') slbZoom(0.25);
+            if (e.key === '-')                  slbZoom(-0.25);
+            if (e.key === '0')                  slbResetZoom();
         });
 
         // Keyboard activation for thumbnails
