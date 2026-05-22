@@ -201,6 +201,61 @@
         </div>
     </section>
 
+    <section class="section gray-bg">
+        <div class="container">
+            <h2 class="section-title">Рішення</h2>
+
+            <!-- Desktop Version -->
+            <div class="solution-subsection">
+                <h3 class="solution-sub-title">Desktop version</h3>
+                <div class="solution-gallery solution-gallery--desktop">
+                    <div class="solution-thumb" onclick="openSolutionLightbox(0)" tabindex="0" role="button" aria-label="Відкрити Desktop 1">
+                        <img src="Декстоп_1.png" alt="Desktop версія 1">
+                        <div class="solution-thumb-overlay"><span>🔍 Переглянути</span></div>
+                    </div>
+                    <div class="solution-thumb" onclick="openSolutionLightbox(1)" tabindex="0" role="button" aria-label="Відкрити Desktop 2">
+                        <img src="Десктоп_2.png" alt="Desktop версія 2">
+                        <div class="solution-thumb-overlay"><span>🔍 Переглянути</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile -->
+            <div class="solution-subsection">
+                <h3 class="solution-sub-title">Mobile</h3>
+                <div class="solution-gallery solution-gallery--mobile">
+                    <div class="solution-thumb" onclick="openSolutionLightbox(2)" tabindex="0" role="button" aria-label="Відкрити Mobile 1">
+                        <img src="Масовий пошук - Мобайл.png" alt="Mobile версія 1">
+                        <div class="solution-thumb-overlay"><span>🔍 Переглянути</span></div>
+                    </div>
+                    <div class="solution-thumb" onclick="openSolutionLightbox(3)" tabindex="0" role="button" aria-label="Відкрити Mobile 2">
+                        <img src="Масовий пошук - Мобайл (1).png" alt="Mobile версія 2">
+                        <div class="solution-thumb-overlay"><span>🔍 Переглянути</span></div>
+                    </div>
+                    <div class="solution-thumb" onclick="openSolutionLightbox(4)" tabindex="0" role="button" aria-label="Відкрити Mobile 3">
+                        <img src="Масовий пошук - Мобайл (2).png" alt="Mobile версія 3">
+                        <div class="solution-thumb-overlay"><span>🔍 Переглянути</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Lightbox -->
+    <div id="solution-lightbox" class="solution-lightbox" role="dialog" aria-modal="true">
+        <div class="solution-lightbox-backdrop" onclick="closeSolutionLightbox()"></div>
+        <div class="solution-lightbox-inner">
+            <button class="slb-close" onclick="closeSolutionLightbox()" aria-label="Закрити">&times;</button>
+            <button class="slb-nav slb-prev" onclick="changeSolutionImage(-1)" aria-label="Попередня">&#8249;</button>
+            <div class="slb-img-wrap">
+                <img id="solution-lightbox-img" src="" alt="Збільшене зображення">
+            </div>
+            <button class="slb-nav slb-next" onclick="changeSolutionImage(1)" aria-label="Наступна">&#8250;</button>
+            <div class="slb-counter"><span id="slb-current">1</span> / <span id="slb-total">5</span></div>
+            <div class="slb-dots" id="slb-dots"></div>
+        </div>
+    </div>
+
 <section class="testimonials-section section gray-bg">
         <div class="container">
             <h2 class="section-title">Результати досліджень та фідбек</h2>
@@ -294,61 +349,6 @@
             </div>
         </div>
     </section>
-
-    <section class="section gray-bg">
-        <div class="container">
-            <h2 class="section-title">Рішення</h2>
-
-            <!-- Desktop Version -->
-            <div class="solution-subsection">
-                <h3 class="solution-sub-title">Desktop version</h3>
-                <div class="solution-gallery solution-gallery--desktop">
-                    <div class="solution-thumb" onclick="openSolutionLightbox(0)" tabindex="0" role="button" aria-label="Відкрити Desktop 1">
-                        <img src="Декстоп_1.png" alt="Desktop версія 1">
-                        <div class="solution-thumb-overlay"><span>🔍 Переглянути</span></div>
-                    </div>
-                    <div class="solution-thumb" onclick="openSolutionLightbox(1)" tabindex="0" role="button" aria-label="Відкрити Desktop 2">
-                        <img src="Десктоп_2.png" alt="Desktop версія 2">
-                        <div class="solution-thumb-overlay"><span>🔍 Переглянути</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mobile -->
-            <div class="solution-subsection">
-                <h3 class="solution-sub-title">Mobile</h3>
-                <div class="solution-gallery solution-gallery--mobile">
-                    <div class="solution-thumb" onclick="openSolutionLightbox(2)" tabindex="0" role="button" aria-label="Відкрити Mobile 1">
-                        <img src="Масовий пошук - Мобайл.png" alt="Mobile версія 1">
-                        <div class="solution-thumb-overlay"><span>🔍 Переглянути</span></div>
-                    </div>
-                    <div class="solution-thumb" onclick="openSolutionLightbox(3)" tabindex="0" role="button" aria-label="Відкрити Mobile 2">
-                        <img src="Масовий пошук - Мобайл (1).png" alt="Mobile версія 2">
-                        <div class="solution-thumb-overlay"><span>🔍 Переглянути</span></div>
-                    </div>
-                    <div class="solution-thumb" onclick="openSolutionLightbox(4)" tabindex="0" role="button" aria-label="Відкрити Mobile 3">
-                        <img src="Масовий пошук - Мобайл (2).png" alt="Mobile версія 3">
-                        <div class="solution-thumb-overlay"><span>🔍 Переглянути</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solution Lightbox -->
-    <div id="solution-lightbox" class="solution-lightbox" role="dialog" aria-modal="true">
-        <div class="solution-lightbox-backdrop" onclick="closeSolutionLightbox()"></div>
-        <div class="solution-lightbox-inner">
-            <button class="slb-close" onclick="closeSolutionLightbox()" aria-label="Закрити">&times;</button>
-            <button class="slb-nav slb-prev" onclick="changeSolutionImage(-1)" aria-label="Попередня">&#8249;</button>
-            <div class="slb-img-wrap">
-                <img id="solution-lightbox-img" src="" alt="Збільшене зображення">
-            </div>
-            <button class="slb-nav slb-next" onclick="changeSolutionImage(1)" aria-label="Наступна">&#8250;</button>
-            <div class="slb-counter"><span id="slb-current">1</span> / <span id="slb-total">5</span></div>
-            <div class="slb-dots" id="slb-dots"></div>
-        </div>
-    </div>
 
     <section class="faq-section section gray-bg">
         <div class="container">
