@@ -298,13 +298,57 @@
     <section class="section gray-bg">
         <div class="container">
             <h2 class="section-title">Рішення</h2>
-            <div class="demo-showcase">
-                <div class="demo-item">
-                    <img src="image_89b7b0.png" alt="Головна сторінка Бізнес-кабінету" onerror="this.src='https://via.placeholder.com/1200x700?text=Головна+Сторінка+Макет'">
+
+            <!-- Desktop Version -->
+            <div class="solution-subsection">
+                <h3 class="solution-sub-title">Desktop version</h3>
+                <div class="solution-gallery solution-gallery--desktop">
+                    <div class="solution-thumb" onclick="openSolutionLightbox(0)" tabindex="0" role="button" aria-label="Відкрити Desktop 1">
+                        <img src="Декстоп_1.png" alt="Desktop версія 1">
+                        <div class="solution-thumb-overlay"><span>🔍 Переглянути</span></div>
+                    </div>
+                    <div class="solution-thumb" onclick="openSolutionLightbox(1)" tabindex="0" role="button" aria-label="Відкрити Desktop 2">
+                        <img src="Десктоп_2.png" alt="Desktop версія 2">
+                        <div class="solution-thumb-overlay"><span>🔍 Переглянути</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile -->
+            <div class="solution-subsection">
+                <h3 class="solution-sub-title">Mobile</h3>
+                <div class="solution-gallery solution-gallery--mobile">
+                    <div class="solution-thumb" onclick="openSolutionLightbox(2)" tabindex="0" role="button" aria-label="Відкрити Mobile 1">
+                        <img src="Масовий пошук - Мобайл.png" alt="Mobile версія 1">
+                        <div class="solution-thumb-overlay"><span>🔍 Переглянути</span></div>
+                    </div>
+                    <div class="solution-thumb" onclick="openSolutionLightbox(3)" tabindex="0" role="button" aria-label="Відкрити Mobile 2">
+                        <img src="Масовий пошук - Мобайл (1).png" alt="Mobile версія 2">
+                        <div class="solution-thumb-overlay"><span>🔍 Переглянути</span></div>
+                    </div>
+                    <div class="solution-thumb" onclick="openSolutionLightbox(4)" tabindex="0" role="button" aria-label="Відкрити Mobile 3">
+                        <img src="Масовий пошук - Мобайл (2).png" alt="Mobile версія 3">
+                        <div class="solution-thumb-overlay"><span>🔍 Переглянути</span></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Solution Lightbox -->
+    <div id="solution-lightbox" class="solution-lightbox" role="dialog" aria-modal="true">
+        <div class="solution-lightbox-backdrop" onclick="closeSolutionLightbox()"></div>
+        <div class="solution-lightbox-inner">
+            <button class="slb-close" onclick="closeSolutionLightbox()" aria-label="Закрити">&times;</button>
+            <button class="slb-nav slb-prev" onclick="changeSolutionImage(-1)" aria-label="Попередня">&#8249;</button>
+            <div class="slb-img-wrap">
+                <img id="solution-lightbox-img" src="" alt="Збільшене зображення">
+            </div>
+            <button class="slb-nav slb-next" onclick="changeSolutionImage(1)" aria-label="Наступна">&#8250;</button>
+            <div class="slb-counter"><span id="slb-current">1</span> / <span id="slb-total">5</span></div>
+            <div class="slb-dots" id="slb-dots"></div>
+        </div>
+    </div>
 
     <section class="faq-section section gray-bg">
         <div class="container">
@@ -418,6 +462,80 @@
             document.getElementById('lightbox').classList.remove('active');
             document.body.style.overflow = 'auto';
         }
+
+        // ── Solution Gallery Lightbox ──────────────────────────────────────
+        const solutionImages = [
+            { src: 'Декстоп_1.png',                     alt: 'Desktop версія 1' },
+            { src: 'Десктоп_2.png',                     alt: 'Desktop версія 2' },
+            { src: 'Масовий пошук - Мобайл.png',        alt: 'Mobile версія 1' },
+            { src: 'Масовий пошук - Мобайл (1).png',    alt: 'Mobile версія 2' },
+            { src: 'Масовий пошук - Мобайл (2).png',    alt: 'Mobile версія 3' },
+        ];
+        let slbCurrent = 0;
+
+        function buildSlbDots() {
+            const wrap = document.getElementById('slb-dots');
+            wrap.innerHTML = '';
+            solutionImages.forEach((_, i) => {
+                const d = document.createElement('button');
+                d.className = 'slb-dot' + (i === slbCurrent ? ' active' : '');
+                d.setAttribute('aria-label', 'Зображення ' + (i + 1));
+                d.onclick = (e) => { e.stopPropagation(); goToSlbImage(i); };
+                wrap.appendChild(d);
+            });
+        }
+
+        function goToSlbImage(index) {
+            slbCurrent = (index + solutionImages.length) % solutionImages.length;
+            const img = document.getElementById('solution-lightbox-img');
+            img.style.opacity = '0';
+            setTimeout(() => {
+                img.src = solutionImages[slbCurrent].src;
+                img.alt = solutionImages[slbCurrent].alt;
+                img.style.opacity = '1';
+            }, 150);
+            document.getElementById('slb-current').textContent = slbCurrent + 1;
+            document.querySelectorAll('.slb-dot').forEach((d, i) => {
+                d.classList.toggle('active', i === slbCurrent);
+            });
+        }
+
+        function openSolutionLightbox(index) {
+            slbCurrent = index;
+            document.getElementById('slb-total').textContent = solutionImages.length;
+            buildSlbDots();
+            const img = document.getElementById('solution-lightbox-img');
+            img.src = solutionImages[slbCurrent].src;
+            img.alt = solutionImages[slbCurrent].alt;
+            document.getElementById('slb-current').textContent = slbCurrent + 1;
+            document.getElementById('solution-lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSolutionLightbox() {
+            document.getElementById('solution-lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeSolutionImage(dir) {
+            goToSlbImage(slbCurrent + dir);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const lb = document.getElementById('solution-lightbox');
+            if (!lb.classList.contains('active')) return;
+            if (e.key === 'ArrowRight') changeSolutionImage(1);
+            if (e.key === 'ArrowLeft')  changeSolutionImage(-1);
+            if (e.key === 'Escape')     closeSolutionLightbox();
+        });
+
+        // Keyboard activation for thumbnails
+        document.querySelectorAll('.solution-thumb').forEach(el => {
+            el.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') el.click();
+            });
+        });
     </script>
 </body>
 </html>
