@@ -83,10 +83,18 @@ const SCALE = 2;
     const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
     console.log('Виміряна висота сторінки:', bodyHeight, 'px');
 
-    console.log('Роблю fullPage скріншот...');
+    console.log('Встановлюю висоту viewport для знімку...');
+    await page.setViewport({
+        width: WIDTH,
+        height: bodyHeight,
+        deviceScaleFactor: SCALE
+    });
+    await new Promise(r => setTimeout(r, 1000));
+
+    console.log('Роблю скріншот...');
     await page.screenshot({
         path: screenshotFile,
-        fullPage: true,
+        fullPage: false,
         type: 'png'
     });
 
