@@ -91,53 +91,19 @@ const SCALE = 2;
     });
     await new Promise(r => setTimeout(r, 1000));
 
-    console.log('Роблю скріншот...');
-    await page.screenshot({
-        path: screenshotFile,
-        fullPage: false,
-        type: 'png'
+    console.log('Емулюю медіа-тип "screen"...');
+    await page.emulateMediaType('screen');
+
+    console.log('Генерую PDF безпосередньо (векторний метод)...');
+    await page.pdf({
+        path: pdfFile,
+        width: WIDTH + 'px',
+        height: bodyHeight + 'px',
+        printBackground: true,
+        margin: { top: 0, right: 0, bottom: 0, left: 0 }
     });
 
     await browser.close();
-
-    const imgSize = fs.statSync(screenshotFile).size;
-    console.log(`✅ Скріншот: ${(imgSize/1024/1024).toFixed(2)} МБ`);
-
-    // ── PNG → PDF ──
-    console.log('Конвертую PNG → PDF...');
-    const imgBuf = fs.readFileSync(screenshotFile);
-    const imgW = imgBuf.readUInt32BE(16);
-    const imgH = imgBuf.readUInt32BE(20);
-    const pdfH = Math.round(imgH * WIDTH / imgW);
-    console.log(`Зображення: ${imgW}x${imgH}px → PDF: ${WIDTH}x${pdfH}pt`);
-
-    const pngBase64 = imgBuf.toString('base64');
-    const tempHtml = path.resolve(__dirname, '_temp_pdf.html');
-    fs.writeFileSync(tempHtml, `<!DOCTYPE html>
-<html><head>
-<style>* { margin:0; padding:0; } html,body { width:${WIDTH}px; background:#fff; }
-img { width:${WIDTH}px; display:block; }</style>
-</head><body>
-<img src="data:image/png;base64,${pngBase64}">
-</body></html>`);
-
-    const browser2 = await puppeteer.launch({
-        executablePath: chromePath,
-        headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
-    });
-    const page2 = await browser2.newPage();
-    await page2.goto('file:///' + tempHtml.replace(/\\/g, '/'), { waitUntil: 'networkidle0' });
-    await page2.pdf({
-        path: pdfFile,
-        width: WIDTH + 'px',
-        height: pdfH + 'px',
-        printBackground: true,
-        pageRanges: '1',
-        margin: { top: 0, right: 0, bottom: 0, left: 0 }
-    });
-    await browser2.close();
-    fs.unlinkSync(tempHtml);
 
     const pdfSize = fs.statSync(pdfFile).size;
     console.log(`✅ PDF: ${(pdfSize/1024/1024).toFixed(2)} МБ`);
