@@ -1029,4 +1029,28 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; color: var(--dark); lin
     }
     .slb-nav { width: 40px; height: 40px; font-size: 1.5rem; }
 }
-@media print { * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } }
+@media print { 
+    @page { 
+        size: landscape; 
+        margin: 15mm; 
+    }
+    * { 
+        -webkit-print-color-adjust: exact !important; 
+        print-color-adjust: exact !important; 
+    }
+    .section {
+        break-inside: avoid;
+    }
+    .jtbd-card, .problem-card {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+    .jtbd-icon {
+        display: block;
+        min-width: 36px;
+        flex-shrink: 0 !important;
+    }
+    body {
+        zoom: 0.9;
+    }
+}
