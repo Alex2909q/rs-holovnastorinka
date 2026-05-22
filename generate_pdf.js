@@ -111,7 +111,7 @@ const SCALE = 2;
     await page.pdf({
         path: pdfFile,
         width: WIDTH + 'px',
-        height: bodyHeight + 'px',
+        height: (bodyHeight + 150) + 'px',
         printBackground: true,
         margin: { top: 0, right: 0, bottom: 0, left: 0 }
     });
