@@ -668,6 +668,56 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; color: var(--dark); lin
     margin: 0;
 }
 
+/* Tooltips styling for JTBD cards */
+.has-tooltip {
+    position: relative;
+    overflow: visible;
+}
+
+.jtbd-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 300px;
+    background: #2a2a2a;
+    color: #f1f1f1;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    z-index: 10;
+}
+
+.jtbd-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: #2a2a2a transparent transparent transparent;
+}
+
+.has-tooltip:hover .jtbd-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+.jtbd-tooltip strong {
+    color: #ffea5c;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+}
+
 @media (max-width: 992px) {
     .jtbd-grid {
         grid-template-columns: repeat(2, 1fr);
