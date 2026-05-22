@@ -596,53 +596,47 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; color: var(--dark); lin
 .solution-gallery--desktop {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 24px;
 }
 
-/* Mobile row: 3 equal columns — narrower cards */
+/* Mobile row: 3 equal columns */
 .solution-gallery--mobile {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 24px;
 }
 
+/* White card with padding — image shows fully inside */
 .solution-thumb {
     position: relative;
-    border-radius: 14px;
-    overflow: hidden;
+    border-radius: 16px;
     cursor: zoom-in;
-    border: 2px solid #e0e0e0;
     background: #fff;
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    overflow: hidden;
 }
 
 .solution-thumb:hover {
-    transform: translateY(-4px);
-    border-color: var(--np-red);
-    box-shadow: 0 16px 40px rgba(227, 30, 36, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.22);
 }
 
+/* Full image visible, no crop */
 .solution-thumb img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
+    height: auto;
     display: block;
+    border-radius: 8px;
     transition: transform 0.35s ease;
 }
 
-/* Desktop thumbnails — landscape */
-.solution-gallery--desktop .solution-thumb {
-    aspect-ratio: 16 / 10;
-}
-
-/* Mobile thumbnails — portrait */
-.solution-gallery--mobile .solution-thumb {
-    aspect-ratio: 9 / 16;
-}
-
 .solution-thumb:hover img {
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
 .solution-thumb-overlay {
