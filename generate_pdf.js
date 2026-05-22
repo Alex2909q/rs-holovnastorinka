@@ -47,12 +47,25 @@ const SCALE = 2;
             el.style.display = 'none';
         });
 
-        // 4. Заморожуємо CSS-анімації в поточному стані для стабільного скріншоту
+        // 4. Відкриваємо всі акордеони (FAQ та Internal FAQ)
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            item.classList.add('active');
+            const icon = item.querySelector('.icon');
+            if (icon) {
+                icon.textContent = '−';
+            }
+        });
+
+        // 5. Заморожуємо CSS-анімації в поточному стані та відкриваємо контент акордеонів повністю
         const style = document.createElement('style');
         style.textContent = `
             * {
                 animation-play-state: paused !important;
                 transition: none !important;
+            }
+            .accordion-content {
+                max-height: none !important;
+                padding-bottom: 22px !important;
             }
         `;
         document.head.appendChild(style);
