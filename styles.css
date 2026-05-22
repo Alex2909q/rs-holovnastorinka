@@ -581,108 +581,101 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; color: var(--dark); lin
     background: #f8f9fa;
 }
 
-.jtbd-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+.jtbd-intro {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    text-align: center;
 }
 
-/* The 4th and 5th cards shift to row 2, centred via column offset */
-.jtbd-card--offset:nth-child(4) {
-    grid-column: 1 / 2;
-    margin-left: calc(50% + 12px);   /* shift right so 2 cards sit centred */
-}
-.jtbd-card--offset:nth-child(5) {
-    grid-column: 2 / 3;
-    margin-left: calc(50% + 12px);
-}
-
-/* Simpler centering approach: wrap row 2 separately */
-.jtbd-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+.jtbd-intro-badge {
+    display: inline-block;
+    background: rgba(227, 30, 36, 0.1);
+    color: var(--np-red);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.jtbd-card {
-    background: #ffffff;
-    border-radius: 18px;
-    padding: 36px 28px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    border-left: 5px solid var(--np-red);
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.jtbd-card::before {
-    content: '';
-    position: absolute;
-    top: -40px;
-    right: -40px;
-    width: 100px;
-    height: 100px;
-    background: rgba(227, 30, 36, 0.05);
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-.jtbd-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(227, 30, 36, 0.12);
-}
-
-.jtbd-icon {
-    font-size: 2.6rem;
-    line-height: 1;
-}
-
-.jtbd-title {
-    font-size: 1.1rem;
-    font-weight: 800;
-    color: var(--dark);
-    margin: 0;
-    line-height: 1.3;
-}
-
-.jtbd-text {
-    font-size: 0.95rem;
+.jtbd-intro-text {
+    font-size: 1.05rem;
     color: #555;
     line-height: 1.6;
+}
+
+.jtbd-layout {
+    display: flex;
+    justify-content: center;
+}
+
+.jtbd-list-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border-top: 4px solid #00b050; /* Green accent to match TO BE card */
+    max-width: 800px;
+    width: 100%;
+}
+
+.jtbd-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.jtbd-card-icon {
+    font-size: 1.6rem;
+}
+
+.jtbd-list {
+    list-style: none;
+    padding: 0;
     margin: 0;
-}
-
-/* Row 2 centering: last 2 cards */
-.jtbd-card--offset {
-    grid-column: auto;
-}
-
-/* Override grid for 5 items: 3 top + 2 centred */
-.jtbd-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 24px;
 }
 
-.jtbd-grid .jtbd-card:nth-child(1) { grid-column: 1 / 3; }
-.jtbd-grid .jtbd-card:nth-child(2) { grid-column: 3 / 5; }
-.jtbd-grid .jtbd-card:nth-child(3) { grid-column: 5 / 7; }
-.jtbd-grid .jtbd-card:nth-child(4) { grid-column: 2 / 4; }
-.jtbd-grid .jtbd-card:nth-child(5) { grid-column: 4 / 6; }
-
-@media (max-width: 900px) {
-    .jtbd-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    .jtbd-grid .jtbd-card:nth-child(n) { grid-column: auto; }
+.jtbd-list li {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
 }
 
-@media (max-width: 600px) {
-    .jtbd-grid {
-        grid-template-columns: 1fr;
+.jtbd-li-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+}
+
+.jtbd-list li div strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--dark);
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.jtbd-list li div span {
+    display: block;
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .jtbd-list-card {
+        padding: 24px;
     }
 }
 
