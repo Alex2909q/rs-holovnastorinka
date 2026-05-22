@@ -748,7 +748,53 @@ body { font-family: 'Montserrat', sans-serif; margin: 0; color: var(--dark); lin
     transform: scale(1.1);
 }
 
+/* Zoom controls panel */
+.slb-zoom-controls {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 4px;
+    z-index: 3;
+    background: rgba(30, 30, 30, 0.85);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 4px;
+    backdrop-filter: blur(8px);
+}
+
+.slb-zoom-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 7px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    font-family: inherit;
+    padding: 0;
+}
+
+.slb-zoom-btn:hover {
+    background: var(--np-red);
+    border-color: var(--np-red);
+}
+
+.slb-zoom-reset {
+    font-size: 0.75rem;
+    width: 50px;
+    letter-spacing: 0.5px;
+}
+
 .slb-close {
+
     position: fixed;
     top: 24px;
     right: 32px;
