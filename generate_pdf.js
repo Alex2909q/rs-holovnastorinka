@@ -11,12 +11,11 @@ const WIDTH = 1440;
 const SCALE = 2;
 
 (async () => {
-    console.log('Запуск браузера...');
+    console.log('Запуск браузера (headless mode)...');
     const browser = await puppeteer.launch({
         executablePath: chromePath,
-        headless: false,
-        defaultViewport: null,
-        args: ['--no-sandbox', `--window-size=${WIDTH},900`]
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
 
     const page = await browser.newPage();
@@ -26,10 +25,15 @@ const SCALE = 2;
     await page.evaluateHandle('document.fonts.ready');
     await new Promise(r => setTimeout(r, 3000));
 
-    // Фікс: перетворюємо всі fixed/sticky елементи на absolute/static
-    // щоб вони не дублювались при fullPage скріншоті
+    // Клієнтська логіка підготовки сторінки для ідеального знімку
     await page.evaluate(() => {
-        // Змінюємо position:fixed → position:absolute для всіх елементів
+        // 1. Заморожуємо висоту Hero-секції в пікселях, щоб при зміні висоти viewport вона не розтягувалася (vh -> px)
+        const hero = document.querySelector('.hero-section');
+        if (hero) {
+            hero.style.height = hero.clientHeight + 'px';
+        }
+
+        // 2. Змінюємо position:fixed -> position:absolute для уникнення дублювання при склеюванні
         const allEls = document.querySelectorAll('*');
         allEls.forEach(el => {
             const style = window.getComputedStyle(el);
@@ -38,27 +42,52 @@ const SCALE = 2;
             }
         });
 
-        // Ховаємо вспливашки
+        // 3. Ховаємо спливаючі підказки
         document.querySelectorAll('.jtbd-tooltip').forEach(el => {
             el.style.display = 'none';
         });
 
-        // Скролимо вниз і назад для ініціалізації lazy елементів
-        window.scrollTo(0, document.body.scrollHeight);
-        window.scrollTo(0, 0);
+        // 4. Заморожуємо CSS-анімації в поточному стані для стабільного скріншоту
+        const style = document.createElement('style');
+        style.textContent = `
+            * {
+                animation-play-state: paused !important;
+                transition: none !important;
+            }
+        `;
+        document.head.appendChild(style);
     });
 
-    await new Promise(r => setTimeout(r, 1000));
+    // 5. Прокрутка для завантаження лінивих зображень та ініціалізації елементів
+    console.log('Прокручую сторінку для завантаження ресурсів...');
+    await page.evaluate(async () => {
+        await new Promise((resolve) => {
+            let totalHeight = 0;
+            const distance = 100;
+            const timer = setInterval(() => {
+                const scrollHeight = document.body.scrollHeight;
+                window.scrollBy(0, distance);
+                totalHeight += distance;
+
+                if (totalHeight >= scrollHeight) {
+                    clearInterval(timer);
+                    window.scrollTo(0, 0);
+                    resolve();
+                }
+            }, 50);
+        });
+    });
+
+    await new Promise(r => setTimeout(r, 2000));
 
     const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
-    console.log('Висота сторінки:', bodyHeight, 'px');
+    console.log('Виміряна висота сторінки:', bodyHeight, 'px');
 
     console.log('Роблю fullPage скріншот...');
     await page.screenshot({
         path: screenshotFile,
         fullPage: true,
-        type: 'png',
-        captureBeyondViewport: true
+        type: 'png'
     });
 
     await browser.close();
